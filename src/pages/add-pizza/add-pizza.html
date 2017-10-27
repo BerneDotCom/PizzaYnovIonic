@@ -7,13 +7,34 @@
 <ion-header>
 
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Ajouter une pizza</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-  <button ion-button primary type="button" name="button" (click)=runCamera()>Test camera</button>
+  <form (ngSubmit)="addPizza()">
+        <ion-item>
+          <ion-label>Nom</ion-label>
+          <ion-input type="text" [(ngModel)]="pizza.nom" name="nom"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Description</ion-label>
+          <ion-textarea [(ngModel)]="pizza.description" name="description"></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Prix</ion-label>
+            <ion-input type="number" [(ngModel)]="pizza.prix" name="prix"></ion-input>
+        </ion-item>
+
+        <button ion-button primary type="button" name="button" (click)=runCamera()>Ajouter une photo</button>
+
+        <button ion-button type="submit" block>Valider</button>
+  </form>
   <img src="{{base64Image}}">
 </ion-content>
