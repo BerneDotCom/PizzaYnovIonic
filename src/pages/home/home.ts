@@ -19,6 +19,7 @@ export class HomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad IngredientPage');
     this.PizzaService.get().then(data => {
+      this.pizzas = data;
       console.log(data);
     });
   }

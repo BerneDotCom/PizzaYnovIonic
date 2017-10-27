@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 //Appplication pages
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/pizza/pizza';
+import { HomePage } from '../pages/home/home';
 import { IngredientPage } from '../pages/ingredient/ingredient';
 import { AddPizzaPage } from '../pages/add-pizza/add-pizza';
 import { AddIngredientPage } from '../pages/add-ingredient/add-ingredient';

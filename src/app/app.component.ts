@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/pizza/pizza';
+import { HomePage } from '../pages/home/home';
 import { IngredientPage } from '../pages/ingredient/ingredient';
 import { AddPizzaPage } from '../pages/add-pizza/add-pizza';
 import { AddIngredientPage } from '../pages/add-ingredient/add-ingredient';
