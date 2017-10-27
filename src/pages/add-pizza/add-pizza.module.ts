@@ -10,4 +10,4 @@ import { AddPizzaPage } from './add-pizza';
     IonicPageModule.forChild(AddPizzaPage),
   ],
 })
-export class AddPizzaPageModule {}
+export class AddImagePageModule {}

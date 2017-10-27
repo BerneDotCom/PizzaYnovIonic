@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
+
+
 /**
- * Generated class for the AddPizzaPage page.
+ * Generated class for the AddImagePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -15,8 +16,9 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
   selector: 'page-add-pizza',
   templateUrl: 'add-pizza.html',
 })
+
 export class AddPizzaPage {
-  // Definition of camera options
+  // Définition des options pour la caméra
   options: CameraOptions = {
     quality: 100,
     destinationType: this.camera.DestinationType.DATA_URL,
@@ -24,8 +26,11 @@ export class AddPizzaPage {
     mediaType: this.camera.MediaType.PICTURE
   };
 
-  //base64Img will contain the picture taken
+  //Déclaration de la variable qui contiendra l'image sous forme de string
   base64Image:String;
+
+  //Pizza which will be added
+  pizza: {name:String, desc:String, picture:String, price:Number, ingredient_ids:Array<Object>};
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera,private base64ToGallery: Base64ToGallery) {
     //Constructor
@@ -35,20 +40,19 @@ export class AddPizzaPage {
     console.log('ionViewDidLoad AddImagePage');
   }
 
-
-  //Function running the camera and saving the picture
+  //Lancement de la caméra pour la capture d'une image
   runCamera(event){
     this.camera.getPicture(this.options).then((imageData) => {
-     //Convert picture to base64
+     //Conversion de l'image en base64
      this.base64Image = 'data:image/jpeg;base64,' + imageData;
 
-    //Saving the picture to the user gallery
+    //Sauvegarde de l'image dans la gallery de l'utilisateur
      this.base64ToGallery.base64ToGallery(imageData, { prefix: '_img' }).then(
 
-       //Return message in case of success
+       //Message de retour en cas de succes
        res => console.log('Image sauvegardée dans la gallerie ', res),
 
-       //Return message in case of failure
+       //Message de retour en cas d'échec
        err => console.log('L\'image n\'a pas pu être sauvegardée ', err)
      );
     }, (err) => {
