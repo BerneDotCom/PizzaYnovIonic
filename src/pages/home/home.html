@@ -14,7 +14,7 @@
   </p>
   <ion-card *ngFor="let pizza of pizzas">
     <img src="{{pizza.picture}}"/>
-    <ion-card-content>
+    <ion-card-content (click)="viewPizza(pizza._id)">
       <ion-card-title>
         {{pizza.name}}
         </ion-card-title>

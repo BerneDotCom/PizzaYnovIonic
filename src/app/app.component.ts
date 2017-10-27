@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { IngredientPage } from '../pages/ingredient/ingredient';
 import { AddPizzaPage } from '../pages/add-pizza/add-pizza';
 import { AddIngredientPage } from '../pages/add-ingredient/add-ingredient';
+import { PanierPage } from '../pages/panier/panier';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -22,12 +24,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Pizzas', component: HomePage },
+      { title: 'Pizzas', component: HomePage},
       { title: 'Ingrédients', component: IngredientPage },
       { title: 'Nouvelle pizza', component: AddPizzaPage },
       { title: 'Nouvel ingrédient', component: AddIngredientPage },
+      { title: 'Voir le panier', component: PanierPage },
     ];
-
   }
 
   initializeApp() {

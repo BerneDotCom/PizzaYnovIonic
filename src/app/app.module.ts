@@ -9,7 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { IngredientPage } from '../pages/ingredient/ingredient';
 import { AddPizzaPage } from '../pages/add-pizza/add-pizza';
 import { AddIngredientPage } from '../pages/add-ingredient/add-ingredient';
-
+import { PanierPage } from '../pages/panier/panier';
+import { ViewPizzaPage } from '../pages/view-pizza/view-pizza';
 
 //Plugins import
 import { StatusBar } from '@ionic-native/status-bar';
@@ -24,7 +25,9 @@ import { PizzaService } from '../providers/pizza-service/pizza-service';
     HomePage,
     IngredientPage,
     AddPizzaPage,
-    AddIngredientPage
+    AddIngredientPage,
+    PanierPage,
+    ViewPizzaPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,9 @@ import { PizzaService } from '../providers/pizza-service/pizza-service';
     HomePage,
     IngredientPage,
     AddPizzaPage,
-    AddIngredientPage
+    AddIngredientPage,
+    PanierPage,
+    ViewPizzaPage
   ],
   providers: [
     StatusBar,
