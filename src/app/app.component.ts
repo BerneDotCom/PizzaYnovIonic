@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import { HomePage } from '../pages/pizza/pizza';
 import { IngredientPage } from '../pages/ingredient/ingredient';
 import { AddPizzaPage } from '../pages/add-pizza/add-pizza';
 import { AddIngredientPage } from '../pages/add-ingredient/add-ingredient';
@@ -23,7 +23,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Pizzas', component: HomePage },
-      { title: 'Ingredients', component: IngredientPage },
+      { title: 'Ingrédients', component: IngredientPage },
       { title: 'Nouvelle pizza', component: AddPizzaPage },
       { title: 'Nouvel ingrédient', component: AddIngredientPage },
     ];

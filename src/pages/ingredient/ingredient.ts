@@ -15,6 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class IngredientPage {
 
+  ingredients: [{name:String, weight:String, price:Number}];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
