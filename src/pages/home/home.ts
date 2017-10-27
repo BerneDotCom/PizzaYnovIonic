@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PizzaService } from '../../providers/pizza-service/pizza-service';
-import { ModalController, NavParams, Platform, ViewController  } from 'ionic-angular';
+import { ModalController, NavParams, Platform, ViewController, ToastController } from 'ionic-angular';
 import { ViewPizzaPage } from '../view-pizza/view-pizza';
 
 @Component({
@@ -13,7 +13,7 @@ export class HomePage {
   //All my pizzas available
   pizzas: [{_id:Number, name:String, desc:String, picture:String, price:Number, ingredient_ids:Array<Object>}];
 
-  constructor(public navCtrl: NavController, public PizzaService: PizzaService,public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public PizzaService: PizzaService,public modalCtrl: ModalController, public toastCtrl: ToastController) {
 
   }
 
@@ -32,6 +32,14 @@ export class HomePage {
        modal.present();
       console.log(data);
     });
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Votre pizza a bien été ajoutée à votre panier',
+      duration: 3000
+    });
+    toast.present();
   }
 
 }

@@ -21,7 +21,7 @@
       <p>
         {{pizza.desc}}
       </p>
-      <button ion-button icon-right primary menuToggle>
+      <button ion-button icon-right primary (click)="presentToast()">
         Ajouter au panier
         <ion-icon name="basket"></ion-icon>
       </button>
