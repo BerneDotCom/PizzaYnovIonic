@@ -4,9 +4,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { IngredientPage } from '../pages/ingredient/ingredient';
 import { AddPizzaPage } from '../pages/add-pizza/add-pizza';
-
+import { AddIngredientPage } from '../pages/add-ingredient/add-ingredient';
 @Component({
   templateUrl: 'app.html'
 })
@@ -22,9 +22,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Ajouter une pizza', component: AddPizzaPage }
+      { title: 'Pizzas', component: HomePage },
+      { title: 'Ingredients', component: IngredientPage },
+      { title: 'Nouvelle pizza', component: AddPizzaPage },
+      { title: 'Nouvel ingrédient', component: AddIngredientPage },
     ];
 
   }
