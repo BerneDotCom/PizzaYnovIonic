@@ -28,9 +28,9 @@ export class HomePage {
 
   viewPizza(id:Number){
     this.PizzaService.getById(id).then(data => {
-       let modal = this.modalCtrl.create(ViewPizzaPage, data);
+        console.log('Data', data);
+       let modal = this.modalCtrl.create(ViewPizzaPage, {'data': data});
        modal.present();
-      console.log(data);
     });
   }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, Platform,IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 /**
  * Generated class for the ViewPizzaPage page.
  *

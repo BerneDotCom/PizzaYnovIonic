@@ -11,12 +11,15 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PizzaService {
   data: any;
-  private readonly url = 'https://pizza4allservicies-youngjeremy.c9users.io/pizza';
+  private readonly url = 'https://pizza4allservicies-youngjeremy.c9users.io/pizza/';
 
   constructor(public http: HttpClient) {
     console.log('Hello PizzaServiceProvider Provider');
   }
 
+/**
+* Get all pizzas from API
+**/
   get(){
     if(this.data){
       return Promise.resolve(this.data);
@@ -30,14 +33,18 @@ export class PizzaService {
     })
   }
 
+/**
+* Return a pizza from API by id parameter
+**/
   getById(id:Number){
     if(this.data){
       return Promise.resolve(this.data);
     }
 
     return new Promise(resolve => {
-      this.http.get(this.url).subscribe(data => {
+      this.http.get(this.url + id).subscribe(data => {
         this.data = data;
+        console.log(this,'Data', data);
         resolve(this.data);
       })
     })
