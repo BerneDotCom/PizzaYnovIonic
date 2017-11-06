@@ -17,38 +17,27 @@
 
 
 <ion-content padding>
-  <form (ngSubmit)="addPizza()">
+  <form (ngSubmit)="addPizza(pizza)">
     <ion-item>
       <ion-label>Nom</ion-label>
-      <!-- <ion-input type="text" [(ngModel)]="pizza.name" name="name"></ion-input> -->
+      <ion-input type="text" [(ngModel)]="pizza.name" name="name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Description</ion-label>
-      <ion-textarea name="desc"></ion-textarea>
-      <!-- <ion-textarea [(ngModel)]="pizza.desc" name="desc"></ion-textarea> -->
+      <ion-textarea [(ngModel)]="pizza.desc" name="desc"></ion-textarea>
     </ion-item>
     <ion-list>
   <ion-item>
     <ion-label>Ingrédients</ion-label>
-    <ion-select  multiple="true" cancelText="Nah" okText="Okay!">
-      <ion-option value="bacon" selected="true">Bacon</ion-option>
-      <ion-option value="olives">Black Olives</ion-option>
-      <ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-      <ion-option value="peppers">Green Peppers</ion-option>
-      <ion-option value="mushrooms">Mushrooms</ion-option>
-      <ion-option value="onions">Onions</ion-option>
-      <ion-option value="pepperoni">Pepperoni</ion-option>
-      <ion-option value="pineapple">Pineapple</ion-option>
-      <ion-option value="sausage">Sausage</ion-option>
-      <ion-option value="Spinach">Spinach</ion-option>
+    <ion-select  multiple="true" cancelText="Annuler" okText="Valider" >
+      <ion-option *ngFor="let ingredient of ingredients" name="ingredient_ids" value="ingredient.name">{{ingredient.name}} - {{ingredient.weight}}</ion-option>
     </ion-select>
   </ion-item>
 </ion-list>
     <ion-item>
         <ion-label>Prix</ion-label>
-        <ion-input type="number" name="price"></ion-input>
-        <!-- <ion-input type="number" [(ngModel)]="pizza.price" name="price"></ion-input> -->
+        <ion-input type="number" [(ngModel)]="pizza.price" name="price"></ion-input>
     </ion-item>
     <button ion-button icon-right primary block type="button" name="button" (click)=runCamera()>
         Ajouter une photo

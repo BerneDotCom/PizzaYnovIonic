@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
-import { iPizza } from '../../models/pizza';
+import { iIngredient } from '../../models/ingredient';
+import { PizzaService } from '../../providers/pizza-service/pizza-service';
+
 
 /**
  * Generated class for the AddImagePage page.
@@ -27,13 +28,17 @@ export class AddPizzaPage {
   };
 
   //Déclaration de la variable qui contiendra l'image sous forme de string
-  base64Image:String;
+  base64Image:string;
 
   //Pizza which will be added
-  pizza: iPizza;
+  pizza =  {name: "", desc: "", picture: "", price: 0, ingredient_ids: Array()};
+  ingredients: iIngredient[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera,private base64ToGallery: Base64ToGallery) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera, public PizzaService: PizzaService, public toastCtrl: ToastController) {
     //Constructor
+
+    //For testing, ingredients list
+    this.ingredients = [{name: "Lardons", weight : "100 Gr", price: 10}, {name: "Pomme de terre ", weight : "300 Gr", price: 2}, {name: "Fromage", weight : "50 Gr", price: 1}];
   }
 
   ionViewDidLoad() {
@@ -45,18 +50,30 @@ export class AddPizzaPage {
     this.camera.getPicture(this.options).then((imageData) => {
      //Conversion de l'image en base64
      this.base64Image = 'data:image/jpeg;base64,' + imageData;
-
-    //Sauvegarde de l'image dans la gallery de l'utilisateur
-     this.base64ToGallery.base64ToGallery(imageData, { prefix: '_img' }).then(
-
-       //Message de retour en cas de succes
-       res => console.log('Image sauvegardée dans la gallerie ', res),
-
-       //Message de retour en cas d'échec
-       err => console.log('L\'image n\'a pas pu être sauvegardée ', err)
-     );
     }, (err) => {
      // Handle error
     });
+  }
+
+  /**
+  * Add a new pizza to APP
+  */
+  addPizza(pizza: {name: "", desc: "", picture: "", price: 0, ingredient_ids: Array<iIngredient>})
+  {
+    this.pizza = pizza;
+    this.pizza.picture = this.base64Image;
+
+    //TODO : Add ingredient_ids
+
+    //Adding the new pizza to App
+    // this.PizzaService.add(this.pizza).then(data => {
+    // });
+
+    //Display a toast to confirm new pizza created
+    let toast = this.toastCtrl.create({
+      message: 'Votre pizza a bien été créée',
+      duration: 3000
+    });
+    toast.present();
   }
 }

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { iIngredient } from '../../models/ingredient';
+
 import 'rxjs/add/operator/map';
 
 /*
@@ -58,6 +60,21 @@ export class PizzaService {
     // return new Promise(resolve => {
     //   this.http.delete(this.url + id).subscribe(data => {
     //     this.data = data;
+    //     resolve(this.data);
+    //   })
+    // })
+  }
+
+
+  /**
+  * Delete a pizza from API by id parameter
+  */
+  add(pizza: {name: string, desc: string, picture: string, price: number, ingredient_ids: Array<iIngredient>}){
+    // let headers = {
+    //     'Content-Type': 'application/json'
+    // };
+    // return new Promise(resolve => {
+    //   this.http.post(this.url, pizza, headers).subscribe(data => {
     //     resolve(this.data);
     //   })
     // })
