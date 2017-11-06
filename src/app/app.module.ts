@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 //Appplication pages
 import { MyApp } from './app.component';
@@ -11,7 +12,7 @@ import { AddPizzaPage } from '../pages/add-pizza/add-pizza';
 import { AddIngredientPage } from '../pages/add-ingredient/add-ingredient';
 import { PanierPage } from '../pages/panier/panier';
 import { ViewPizzaPage } from '../pages/view-pizza/view-pizza';
-
+import { IntroPage } from '../pages/intro/intro';
 
 //Services
 import { PizzaService } from '../providers/pizza-service/pizza-service';
@@ -32,12 +33,14 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
     AddPizzaPage,
     AddIngredientPage,
     PanierPage,
-    ViewPizzaPage
+    ViewPizzaPage,
+    IntroPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,7 +50,8 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
     AddPizzaPage,
     AddIngredientPage,
     PanierPage,
-    ViewPizzaPage
+    ViewPizzaPage,
+    IntroPage
   ],
   providers: [
     StatusBar,

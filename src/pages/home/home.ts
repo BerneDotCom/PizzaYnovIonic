@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 import { PizzaService } from '../../providers/pizza-service/pizza-service';
 import { ModalController, ToastController } from 'ionic-angular';
 import { ViewPizzaPage } from '../view-pizza/view-pizza';
 import { iPizza } from '../../models/pizza';
+import { IntroPage } from '../intro/intro';
+
 
 @Component({
   selector: 'page-home',
@@ -14,13 +18,20 @@ export class HomePage {
   //All my pizzas available
   pizzas: [iPizza];
 
-  constructor(public navCtrl: NavController, public PizzaService: PizzaService,public modalCtrl: ModalController, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public PizzaService: PizzaService,public modalCtrl: ModalController, public toastCtrl: ToastController, public storage: Storage) {
 
   }
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad IngredientPage');
+    //Handling intro pages
+    this.storage.get('intro-done').then(done => {
+        if (!done) {
+          this.storage.set('intro-done', true);
+          this.navCtrl.setRoot(IntroPage);
+        }
+      });
+
     //When API is not running
 
     //When API is running
