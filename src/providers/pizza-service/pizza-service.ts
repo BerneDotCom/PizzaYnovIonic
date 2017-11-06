@@ -26,7 +26,8 @@ export class PizzaService {
     }
 
     return new Promise(resolve => {
-      this.http.get(this.url).subscribe(data => {
+      //When API is not running : this.url = 'assets/pizza.json'
+      this.http.get('assets/pizza.json').subscribe(data => {
         this.data = data;
         resolve(this.data);
       })

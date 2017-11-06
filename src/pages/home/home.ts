@@ -20,20 +20,30 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IngredientPage');
+    //When API is not running
+
+    //When API is running
     this.PizzaService.get().then(data => {
       this.pizzas = data
       console.log(data);
     });
   }
 
-  viewPizza(id:Number){
-    this.PizzaService.getById(id).then(data => {
-        console.log('Data', data);
-       let modal = this.modalCtrl.create(ViewPizzaPage, {'data': data});
-       modal.present();
-    });
+/**
+* Function called when a pizza is selected
+*/
+  viewPizza(pizza: Object){
+    //pizza is the object selected by the user
+
+     let modal = this.modalCtrl.create(ViewPizzaPage, {'data': pizza});
+
+     //Display modal for the pizza
+     modal.present();
   }
 
+/**
+* Display a toast when a pizza is added to the basket
+*/
   presentToast() {
     let toast = this.toastCtrl.create({
       message: 'Votre pizza a bien été ajoutée à votre panier',

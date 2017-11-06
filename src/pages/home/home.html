@@ -13,8 +13,8 @@
     Choisissez votre pizza parmi la liste suivante :
   </p>
   <ion-card *ngFor="let pizza of pizzas">
-    <img src="{{pizza.picture}}"/>
-    <ion-card-content (click)="viewPizza(pizza._id)">
+    <img (click)="viewPizza(pizza)" src="{{pizza.picture}}"/>
+    <ion-card-content>
       <ion-card-title>
         {{pizza.name}}
         </ion-card-title>
