@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
-
+import { iPizza } from '../../models/pizza';
 
 /**
  * Generated class for the AddImagePage page.
@@ -30,7 +30,7 @@ export class AddPizzaPage {
   base64Image:String;
 
   //Pizza which will be added
-  pizza: {name:String, desc:String, picture:String, price:Number, ingredient_ids:Array<Object>};
+  pizza: iPizza;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera,private base64ToGallery: Base64ToGallery) {
     //Constructor

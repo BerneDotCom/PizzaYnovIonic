@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PizzaService } from '../../providers/pizza-service/pizza-service';
-import { ModalController, NavParams, Platform, ViewController, ToastController } from 'ionic-angular';
+import { ModalController, ToastController } from 'ionic-angular';
 import { ViewPizzaPage } from '../view-pizza/view-pizza';
+import { iPizza } from '../../models/pizza';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +12,7 @@ import { ViewPizzaPage } from '../view-pizza/view-pizza';
 export class HomePage {
 
   //All my pizzas available
-  pizzas: [{_id:Number, name:String, desc:String, picture:String, price:Number, ingredient_ids:Array<Object>}];
+  pizzas: [iPizza];
 
   constructor(public navCtrl: NavController, public PizzaService: PizzaService,public modalCtrl: ModalController, public toastCtrl: ToastController) {
 
@@ -25,14 +26,13 @@ export class HomePage {
     //When API is running
     this.PizzaService.get().then(data => {
       this.pizzas = data
-      console.log(data);
     });
   }
 
 /**
 * Function called when a pizza is selected
 */
-  viewPizza(pizza: Object){
+  viewPizza(pizza: iPizza){
     //pizza is the object selected by the user
 
      let modal = this.modalCtrl.create(ViewPizzaPage, {'data': pizza});
@@ -50,6 +50,23 @@ export class HomePage {
       duration: 3000
     });
     toast.present();
+  }
+
+  /**
+  * Delete from API the selected pizza
+  */
+  delete(pizza: iPizza)
+  {
+    let toast = this.toastCtrl.create({
+      message: 'Pizza supprimée',
+      duration: 3000
+    });
+    toast.present();
+
+    // this.PizzaService.delete(pizza._id).then(data => {
+    //   this.pizzas = data
+    //   console.log(data);
+    // });
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { iIngredient } from '../../models/ingredient';
 
 /**
  * Generated class for the AddIngredientPage page.
@@ -16,7 +17,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class AddIngredientPage {
 
   //Pizza which will be added
-  ingredient: {name:String, weight:String, price:Number};
+  ingredient: iIngredient;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

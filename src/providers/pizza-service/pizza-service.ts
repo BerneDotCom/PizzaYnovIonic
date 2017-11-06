@@ -50,4 +50,16 @@ export class PizzaService {
     //   })
     // })
   }
+
+  /**
+  * Delete a pizza from API by id parameter
+  */
+  delete(id: Number){
+    // return new Promise(resolve => {
+    //   this.http.delete(this.url + id).subscribe(data => {
+    //     this.data = data;
+    //     resolve(this.data);
+    //   })
+    // })
+  }
 }
