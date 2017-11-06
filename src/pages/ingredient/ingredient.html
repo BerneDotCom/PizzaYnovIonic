@@ -12,37 +12,19 @@
     </button>
     <ion-title>Ingrédients</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
     <ion-list>
-      <ion-card>
+      <ion-card *ngFor="let ingredient of ingredients">
         <ion-card-header>
-          Jambon
+          <b>{{ingredient.name}}</b> - {{ingredient.weight}} - {{ingredient.price}} €
+          <button ion-button icon-right color="danger" type="button" name="button" (click)="delete(ingredient)">
+              Supprimer
+              <ion-icon name="trash"></ion-icon>
+          </button>
         </ion-card-header>
-        <ion-card-content>
-          <b>Quantité :</b> 100 gr.
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-card-header>
-          Jambon
-        </ion-card-header>
-        <ion-card-content>
-          <b>Quantité :</b> 100 gr.
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-card-header>
-          Jambon
-        </ion-card-header>
-        <ion-card-content>
-          <b>Quantité :</b> 100 gr.
-        </ion-card-content>
       </ion-card>
     </ion-list>
 </ion-content>

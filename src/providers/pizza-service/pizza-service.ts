@@ -38,16 +38,16 @@ export class PizzaService {
 * Return a pizza from API by id parameter
 **/
   getById(id:Number){
-    if(this.data){
-      return Promise.resolve(this.data);
-    }
-
-    return new Promise(resolve => {
-      this.http.get(this.url + id).subscribe(data => {
-        this.data = data;
-        console.log(this,'Data', data);
-        resolve(this.data);
-      })
-    })
+    // if(this.data){
+    //   return Promise.resolve(this.data);
+    // }
+    //
+    // return new Promise(resolve => {
+    //   this.http.get(this.url + id).subscribe(data => {
+    //     this.data = data;
+    //     console.log(this,'Data', data);
+    //     resolve(this.data);
+    //   })
+    // })
   }
 }

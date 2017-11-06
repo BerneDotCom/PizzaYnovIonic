@@ -12,12 +12,17 @@ import { AddIngredientPage } from '../pages/add-ingredient/add-ingredient';
 import { PanierPage } from '../pages/panier/panier';
 import { ViewPizzaPage } from '../pages/view-pizza/view-pizza';
 
+
+//Services
+import { PizzaService } from '../providers/pizza-service/pizza-service';
+import { IngredientService } from '../providers/ingredient-service/ingredient-service';
+
+
 //Plugins import
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
-import { PizzaService } from '../providers/pizza-service/pizza-service';
 
 @NgModule({
   declarations: [
@@ -51,6 +56,7 @@ import { PizzaService } from '../providers/pizza-service/pizza-service';
     Base64ToGallery,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PizzaService,
+    IngredientService,
   ]
 })
 export class AppModule {}
