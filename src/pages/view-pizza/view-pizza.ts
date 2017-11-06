@@ -15,12 +15,12 @@ import { IonicPage, NavController, NavParams, ViewController, ToastController } 
 export class ViewPizzaPage {
 
   pizza;
-  ingredients;
+  ingredients: [{name:String, weight:String, price:Number}];
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public toastCtrl: ToastController) {
     this.pizza = this.navParams.get('data');
 
     //For testing, ingredients list
-    this.ingredients = [{name: "Lardons", weight : "100 Gr", price: "10 €"}, {name: "Pomme de terre ", weight : "300 Gr", price: "2 €"}, {name: "Fromage", weight : "50 Gr", price: "1 €"}];
+    this.ingredients = [{name: "Lardons", weight : "100 Gr", price: 10}, {name: "Pomme de terre ", weight : "300 Gr", price: 2}, {name: "Fromage", weight : "50 Gr", price: 1}];
   }
 
   ionViewDidLoad() {
