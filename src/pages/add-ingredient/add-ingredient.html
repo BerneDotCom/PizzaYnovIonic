@@ -17,19 +17,19 @@
 
 
 <ion-content padding>
-  <form (ngSubmit)="addIngredient()">
+  <form (ngSubmit)="addIngredient(ingredient)">
     <ion-item>
       <ion-label>Nom</ion-label>
-      <!-- <ion-input type="text" [(ngModel)]="ingredient.name" name="name"></ion-input> -->
+      <ion-input type="text" [(ngModel)]="ingredient.name" name="name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Poids</ion-label>
-      <!-- <ion-input type="text" [(ngModel)]="ingredient.weight" name="weight"></ion-input> -->
+      <ion-input type="text" [(ngModel)]="ingredient.weight" name="weight"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Prix</ion-label>
-      <!-- <ion-input type="text" [(ngModel)]="ingredient.price" name="price"></ion-input> -->
+      <ion-input type="text" [(ngModel)]="ingredient.price" name="price"></ion-input>
     </ion-item>
     <button ion-button full type="submit" color="secondary">Valider</button>
   </form>
