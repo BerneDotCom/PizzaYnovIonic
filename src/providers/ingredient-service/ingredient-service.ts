@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class IngredientService {
   data: any;
-  // private readonly url = 'https://pizza4allservicies-youngjeremy.c9users.io/ingredient/';
+  private readonly url = 'https://pizza-bernedotcom.c9users.io/ingredient/';
 
   constructor(public http: HttpClient) {
     console.log('Hello IngredientProvider Provider');
@@ -21,34 +21,33 @@ export class IngredientService {
 * Get all ingredients from API
 **/
   get(){
-    // if(this.data){
-    //   return Promise.resolve(this.data);
-    // }
-    //
-    // return new Promise(resolve => {
-    //   //When API is not running : this.url = 'assets/pizza.json'
-    //   this.http.get(this.url).subscribe(data => {
-    //     this.data = data;
-    //     resolve(this.data);
-    //   })
-    // })
+    if(this.data){
+      return Promise.resolve(this.data);
+    }
+
+    return new Promise(resolve => {
+      //When API is not running : this.url = 'assets/pizza.json'
+      this.http.get(this.url).subscribe(data => {
+        this.data = data;
+        resolve(this.data);
+      })
+    })
   }
 
 /**
 * Return an ingredient from API by id parameter
 **/
   getById(id:Number){
-    // if(this.data){
-    //   return Promise.resolve(this.data);
-    // }
-    //
-    // return new Promise(resolve => {
-    //   this.http.get(this.url + id).subscribe(data => {
-    //     this.data = data;
-    //     console.log(this,'Data', data);
-    //     resolve(this.data);
-    //   })
-    // })
+    if(this.data){
+      return Promise.resolve(this.data);
+    }
+
+    return new Promise(resolve => {
+      this.http.get(this.url + id).subscribe(data => {
+        this.data = data;
+        resolve(this.data);
+      })
+    })
   }
 
 
@@ -56,16 +55,16 @@ export class IngredientService {
   * Delete an ingredient from API by id parameter
   **/
     delete(name:String){
-      // if(this.data){
-      //   return Promise.resolve(this.data);
-      // }
-      //
-      // return new Promise(resolve => {
-      //   this.http.get(this.url + 'delete/' + name).subscribe(data => {
-      //     this.data = data;
-      //     console.log(this,'Data', data);
-      //     resolve(this.data);
-      //   })
-      // })
+      if(this.data){
+        return Promise.resolve(this.data);
+      }
+      
+      return new Promise(resolve => {
+        this.http.get(this.url + 'delete/' + name).subscribe(data => {
+          this.data = data;
+          console.log(this,'Data', data);
+          resolve(this.data);
+        })
+      })
     }
 }

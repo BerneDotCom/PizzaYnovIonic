@@ -1,4 +1,4 @@
-export interface iIngredient{
+export interface Ingredient{
   name:String;
   weight:String;
   price:Number;

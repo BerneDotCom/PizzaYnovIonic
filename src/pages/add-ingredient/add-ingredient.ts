@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { iIngredient } from '../../models/ingredient';
+import { Ingredient } from '../../models/ingredient';
 import { IngredientService } from '../../providers/ingredient-service/ingredient-service';
 /**
  * Generated class for the AddIngredientPage page.

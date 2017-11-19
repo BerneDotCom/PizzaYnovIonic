@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { iIngredient } from '../../models/ingredient';
+import { Ingredient } from '../../models/ingredient';
 import { PizzaService } from '../../providers/pizza-service/pizza-service';
 
 
@@ -32,7 +32,7 @@ export class AddPizzaPage {
 
   //Pizza which will be added
   pizza =  {name: "", desc: "", picture: "", price: 0, ingredient_ids: Array()};
-  ingredients: iIngredient[];
+  ingredients: Ingredient[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera, public PizzaService: PizzaService, public toastCtrl: ToastController) {
     //Constructor
@@ -58,7 +58,7 @@ export class AddPizzaPage {
   /**
   * Add a new pizza to APP
   */
-  addPizza(pizza: {name: "", desc: "", picture: "", price: 0, ingredient_ids: Array<iIngredient>})
+  addPizza(pizza: {name: "", desc: "", picture: "", price: 0, ingredient_ids: Array<Ingredient>})
   {
     this.pizza = pizza;
     this.pizza.picture = this.base64Image;

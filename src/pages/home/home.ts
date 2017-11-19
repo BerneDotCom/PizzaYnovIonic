@@ -5,7 +5,7 @@ import { Storage } from '@ionic/storage';
 import { PizzaService } from '../../providers/pizza-service/pizza-service';
 import { ModalController, ToastController } from 'ionic-angular';
 import { ViewPizzaPage } from '../view-pizza/view-pizza';
-import { iPizza } from '../../models/pizza';
+import { Pizza } from '../../models/pizza';
 import { IntroPage } from '../intro/intro';
 
 
@@ -16,7 +16,7 @@ import { IntroPage } from '../intro/intro';
 export class HomePage {
 
   //All my pizzas available
-  pizzas: [iPizza];
+  pizzas: [Pizza];
 
   constructor(public navCtrl: NavController, public PizzaService: PizzaService,public modalCtrl: ModalController, public toastCtrl: ToastController, public storage: Storage) {
 
@@ -43,7 +43,7 @@ export class HomePage {
 /**
 * Function called when a pizza is selected
 */
-  viewPizza(pizza: iPizza){
+  viewPizza(pizza: Pizza){
     //pizza is the object selected by the user
 
      let modal = this.modalCtrl.create(ViewPizzaPage, {'data': pizza});
@@ -66,7 +66,7 @@ export class HomePage {
   /**
   * Delete from API the selected pizza
   */
-  delete(pizza: iPizza)
+  delete(pizza: Pizza)
   {
     let toast = this.toastCtrl.create({
       message: 'Pizza supprimée',

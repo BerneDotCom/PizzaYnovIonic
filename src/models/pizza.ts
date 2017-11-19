@@ -1,4 +1,4 @@
-export interface iPizza{
+export interface Pizza{
   _id:Number;
   name:String;
   desc:String;
