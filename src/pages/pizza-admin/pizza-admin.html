@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Administration</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1 class="title">Administration des pizzas</h1>
+    <ion-content>
+      <ion-row>
+          <ion-col><strong>Id pizza</strong></ion-col>
+          <ion-col><strong>Nom</strong></ion-col>
+          <ion-col><strong>Description</strong></ion-col>
+          <ion-col><strong>Prix</strong></ion-col>
+          <ion-col><strong>Editer</strong></ion-col>
+          <ion-col><strong>Supprimer</strong></ion-col>
+        </ion-row>
+        <ion-row *ngFor="let pizza of pizzaList">
+          <ion-col>{{pizza._id}}</ion-col>
+          <ion-col>{{pizza.name}}</ion-col>
+          <ion-col>{{pizza.desc}}</ion-col>
+          <ion-col>{{pizza.price}}</ion-col>
+          <ion-col>
+            <button ion-button primary block type="button" name="button" (click)=edit(pizza)>
+              <ion-icon name="add">
+              </ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color="danger" block type="button" name="button" (click)=remove(pizza)>
+              <ion-icon name="trash">
+              </ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+    </ion-content>
+</ion-content>
