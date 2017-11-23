@@ -17,8 +17,9 @@ import { IngredientService } from '../../providers/ingredient-service/ingredient
 export class AddIngredientPage {
 
   //Pizza which will be added
-  ingredient = { name: "", weight: "", price: 0 };
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  ingredient: Ingredient;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public ingredientService: IngredientService) {
+    this.ingredient = {name: "", price: 0, weight: ""};
   }
 
   ionViewDidLoad() {
@@ -28,20 +29,19 @@ export class AddIngredientPage {
   /**
   * Add a new ingredient to the APP
   **/
-  addIngredient(ingredient : { name:string, weight:string, price:number })
+  addIngredient(ingredient: Ingredient)
   {
     this.ingredient = ingredient;
     console.log(this.ingredient);
 
     //Adding the new ingredient to App
-    // this.IngredientService.add(this.ingredient).then(data => {
-    // });
-
-    //Display a toast to confirm new pizza created
-    let toast = this.toastCtrl.create({
-      message: 'L\'ingrédient a bien été créé',
-      duration: 3000
+    this.ingredientService.add(this.ingredient).then(data => {
+      //Display a toast to confirm new pizza created
+      let toast = this.toastCtrl.create({
+        message: 'L\'ingrédient a bien été créé',
+        duration: 3000
+      });
+      toast.present();
     });
-    toast.present();
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { IngredientService } from '../../providers/ingredient-service/ingredient-service';
 import { Ingredient } from '../../models/ingredient';
+import { AddIngredientPage } from '../add-ingredient/add-ingredient';
 
 /**
  * Generated class for the IngredientPage page.
@@ -43,5 +44,11 @@ export class IngredientPage {
       toast.present();
       this.navCtrl.setRoot(this.navCtrl.getActive().component);
     });
+  }
+
+  // Call the page AddIngredient
+  addNewIngredient()
+  {
+    this.navCtrl.push(AddIngredientPage);
   }
 }

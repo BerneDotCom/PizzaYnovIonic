@@ -16,6 +16,12 @@
 
 
 <ion-content padding>
+  <button ion-button color="success" block type="button" name="button" (click)=addNewIngredient()>
+    <ion-icon name="add">
+    </ion-icon>
+    Ajouter un nouvel ingrédient
+  </button>
+
     <ion-list>
       <ion-card *ngFor="let ingredient of ingredients">
         <ion-card-header>
