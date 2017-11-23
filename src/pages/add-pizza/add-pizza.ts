@@ -39,6 +39,7 @@ export class AddPizzaPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera, public PizzaService: PizzaService, public toastCtrl: ToastController, private ingredientService: IngredientService) {
     this.pizza = {name: "", desc: "", picture: "", price: 0, ingredient_ids: []};
+    this.base64Image = "data:image/jpeg;base64,";
   }
 
   //INIT
@@ -68,11 +69,10 @@ export class AddPizzaPage {
     this.pizza.picture = this.base64Image;
 
     console.log("MES INGREDS :",this.ingredient_ids);
-    //TODO : Add ingredient_ids
 
     //Adding the new pizza to App
-    // this.PizzaService.add(this.pizza).then(data => {
-    // });
+    this.PizzaService.add(this.pizza).then(data => {
+    });
 
     //Display a toast to confirm new pizza created
     let toast = this.toastCtrl.create({
