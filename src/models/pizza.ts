@@ -1,8 +1,8 @@
 export interface Pizza{
-  _id:Number;
-  name:String;
-  desc:String;
-  picture:String;
-  price:Number;
+  _id?:string;
+  name:string;
+  desc:string;s
+  picture:string;
+  price:number;
   ingredient_ids:Array<Object>
 }
