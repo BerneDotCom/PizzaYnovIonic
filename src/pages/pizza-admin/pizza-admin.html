@@ -10,6 +10,11 @@
 
 <ion-content padding>
   <h1 class="title">Administration des pizzas</h1>
+    <button ion-button color="success" block type="button" name="button" (click)=addNewPizza()>
+      <ion-icon name="add">
+      </ion-icon>
+      Ajouter une nouvelle pizza
+    </button>
     <ion-content>
       <ion-row>
           <ion-col><strong>Id pizza</strong></ion-col>
@@ -26,7 +31,7 @@
           <ion-col>{{pizza.price}}</ion-col>
           <ion-col>
             <button ion-button primary block type="button" name="button" (click)=edit(pizza)>
-              <ion-icon name="add">
+              <ion-icon name="create">
               </ion-icon>
             </button>
           </ion-col>
