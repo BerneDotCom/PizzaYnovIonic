@@ -8,6 +8,8 @@ import { ViewPizzaPage } from '../view-pizza/view-pizza';
 import { Pizza } from '../../models/pizza';
 import { IntroPage } from '../intro/intro';
 
+import { PanierService } from '../../providers/panier-service/panier-service';
+
 
 @Component({
   selector: 'page-home',
@@ -18,7 +20,7 @@ export class HomePage {
   //All my pizzas available
   pizzas: [Pizza];
 
-  constructor(public navCtrl: NavController, public PizzaService: PizzaService,public modalCtrl: ModalController, public toastCtrl: ToastController, public storage: Storage) {
+  constructor(public navCtrl: NavController, public PizzaService: PizzaService,public modalCtrl: ModalController, public toastCtrl: ToastController, public storage: Storage, private panierService: PanierService) {
 
   }
 
@@ -55,11 +57,14 @@ export class HomePage {
 /**
 * Display a toast when a pizza is added to the basket
 */
-  presentToast() {
+  presentToast(pizza: Pizza) {
     let toast = this.toastCtrl.create({
       message: 'Votre pizza a bien été ajoutée à votre panier',
       duration: 3000
     });
+
+    this.panierService.add(pizza);
+
     toast.present();
   }
 

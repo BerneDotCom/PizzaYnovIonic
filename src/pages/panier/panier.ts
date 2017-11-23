@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PanierService } from '../../providers/panier-service/panier-service';
+import { Pizza } from '../../models/pizza';
 
 /**
  * Generated class for the PanierPage page.
@@ -15,11 +17,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PanierPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  panier: Pizza[];
+  constructor(public navCtrl: NavController, public navParams: NavParams, private panierService: PanierService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PanierPage');
+    this.panier = this.panierService.get();
   }
 
 }

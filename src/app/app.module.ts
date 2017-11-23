@@ -18,6 +18,7 @@ import { PizzaAdminPage } from '../pages/pizza-admin/pizza-admin';
 //Services
 import { PizzaService } from '../providers/pizza-service/pizza-service';
 import { IngredientService } from '../providers/ingredient-service/ingredient-service';
+import { PanierService } from '../providers/panier-service/panier-service';
 
 
 //Plugins import
@@ -64,6 +65,7 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PizzaService,
     IngredientService,
+    PanierService
   ]
 })
 export class AppModule {}

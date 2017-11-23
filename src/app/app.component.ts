@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { IngredientPage } from '../pages/ingredient/ingredient';
 import { PanierPage } from '../pages/panier/panier';
 import { PizzaAdminPage } from '../pages/pizza-admin/pizza-admin';
+import { PanierService } from '../providers/panier-service/panier-service';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +19,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public panierService: PanierService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
