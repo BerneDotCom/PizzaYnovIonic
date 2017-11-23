@@ -67,22 +67,4 @@ export class HomePage {
 
     toast.present();
   }
-
-  /**
-  * Delete from API the selected pizza
-  */
-  delete(pizza: Pizza)
-  {
-    let toast = this.toastCtrl.create({
-      message: 'Pizza supprimée',
-      duration: 3000
-    });
-    toast.present();
-
-    // this.PizzaService.delete(pizza._id).then(data => {
-    //   this.pizzas = data
-    //   console.log(data);
-    // });
-  }
-
 }

@@ -2,15 +2,17 @@
   <ion-slides pager="true" parallax="true" padding>
 
     <ion-slide>
-      <img src="assets/img1.svg">
       <h1>Bienvenue sur mon application de gestion de pizza !</h1>
     </ion-slide>
 
     <ion-slide>
-      <img src="assets/img2.svg">
       <h1>Cette application permet : </h1>
       <p>La gestion de pizzas (creation, consultation, suppression) ainsi que pour leurs ingrédients.</p>
       <p>La gestion du panier est aussi disponible</p>
+
+      <button ion-button outline small (click)="navHome()">
+        Valider
+      </button>
     </ion-slide>
   </ion-slides>
 </ion-content>

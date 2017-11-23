@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController, ToastController } 
 import { Pizza } from '../../models/pizza';
 import { Ingredient } from '../../models/ingredient';
 import { PanierService } from '../../providers/panier-service/panier-service';
+import { IngredientService } from '../../providers/ingredient-service/ingredient-service';
 
 /**
  * Generated class for the ViewPizzaPage page.
@@ -21,11 +22,9 @@ export class ViewPizzaPage {
   pizza: Pizza;
   ingredients: [Ingredient];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public toastCtrl: ToastController, private panierService: PanierService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public toastCtrl: ToastController, private panierService: PanierService, private ingredientService: IngredientService) {
     this.pizza = this.navParams.get('data');
 
-    //For testing, ingredients list
-    this.ingredients = [{name: "Lardons", weight : "100 Gr", price: 10}, {name: "Pomme de terre ", weight : "300 Gr", price: 2}, {name: "Fromage", weight : "50 Gr", price: 1}];
   }
 
   ionViewDidLoad() {
@@ -45,7 +44,7 @@ export class ViewPizzaPage {
         duration: 3000
       });
       this.panierService.add(pizza);
-      
+
       toast.present();
     }
 }

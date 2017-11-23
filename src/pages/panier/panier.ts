@@ -22,6 +22,7 @@ export class PanierPage {
   }
 
   ionViewDidLoad() {
+    //Get all pizzas in bucket
     this.panier = this.panierService.get();
   }
 

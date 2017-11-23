@@ -16,6 +16,7 @@ export class PizzaAdminPage {
   }
 
   ionViewDidLoad() {
+    //Get all pizzas from API
     this.pizzaService.get().then(data => {
       this.pizzaList = data;
     });
@@ -23,12 +24,16 @@ export class PizzaAdminPage {
 
   remove(pizza: Pizza)
   {
+    //Remove from API the selected pizza
     this.pizzaService.delete(pizza._id).then(data => {
+
+      //Redirect to PizzaAdminPage
       this.navCtrl.push(PizzaAdminPage)
     });
   }
 
   addNewPizza(){
+    //Add the selected pizza to the bucket
     this.navCtrl.push(AddPizzaPage);
   }
 }

@@ -17,10 +17,12 @@ export class PanierService {
     this.panier = [];
   }
 
+  //Return all pizzas added in bucket
   get(){
     return this.panier;
   }
-  
+
+  //Add a pizza in bucket
   add(pizza){
     this.panier.push(pizza);
   }
