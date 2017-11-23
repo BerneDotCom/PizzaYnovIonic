@@ -5,9 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { IngredientPage } from '../pages/ingredient/ingredient';
-import { AddPizzaPage } from '../pages/add-pizza/add-pizza';
 import { AddIngredientPage } from '../pages/add-ingredient/add-ingredient';
 import { PanierPage } from '../pages/panier/panier';
+import { PizzaAdminPage } from '../pages/pizza-admin/pizza-admin';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +26,7 @@ export class MyApp {
     this.pages = [
       { title: 'Pizzas', component: HomePage},
       { title: 'Ingrédients', component: IngredientPage },
-      { title: 'Nouvelle pizza', component: AddPizzaPage },
+      { title: 'Administration pizza', component: PizzaAdminPage },
       { title: 'Nouvel ingrédient', component: AddIngredientPage },
       { title: 'Voir le panier', component: PanierPage },
     ];

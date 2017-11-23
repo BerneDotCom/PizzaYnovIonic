@@ -13,6 +13,7 @@ import { AddIngredientPage } from '../pages/add-ingredient/add-ingredient';
 import { PanierPage } from '../pages/panier/panier';
 import { ViewPizzaPage } from '../pages/view-pizza/view-pizza';
 import { IntroPage } from '../pages/intro/intro';
+import { PizzaAdminPage } from '../pages/pizza-admin/pizza-admin';
 
 //Services
 import { PizzaService } from '../providers/pizza-service/pizza-service';
@@ -34,7 +35,8 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
     AddIngredientPage,
     PanierPage,
     ViewPizzaPage,
-    IntroPage
+    IntroPage,
+    PizzaAdminPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
     AddIngredientPage,
     PanierPage,
     ViewPizzaPage,
-    IntroPage
+    IntroPage,
+    PizzaAdminPage
   ],
   providers: [
     StatusBar,
