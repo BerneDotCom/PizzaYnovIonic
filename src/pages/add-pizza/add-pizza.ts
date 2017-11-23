@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Ingredient } from '../../models/ingredient';
+import { IngredientService } from '../../providers/ingredient-service/ingredient-service';
 import { PizzaService } from '../../providers/pizza-service/pizza-service';
+import { Pizza } from '../../models/pizza';
 
 
 /**
@@ -31,18 +33,20 @@ export class AddPizzaPage {
   base64Image:string;
 
   //Pizza which will be added
-  pizza =  {name: "", desc: "", picture: "", price: 0, ingredient_ids: Array()};
+  pizza: Pizza;
   ingredients: Ingredient[];
+  ingredient_ids: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera, public PizzaService: PizzaService, public toastCtrl: ToastController) {
-    //Constructor
-
-    //For testing, ingredients list
-    this.ingredients = [{name: "Lardons", weight : "100 Gr", price: 10}, {name: "Pomme de terre ", weight : "300 Gr", price: 2}, {name: "Fromage", weight : "50 Gr", price: 1}];
+  constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera, public PizzaService: PizzaService, public toastCtrl: ToastController, private ingredientService: IngredientService) {
+    this.pizza = {name: "", desc: "", picture: "", price: 0, ingredient_ids: []};
   }
 
+  //INIT
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddImagePage');
+
+    this.ingredientService.get().then(data => {
+        this.ingredients = data;
+    });
   }
 
   //Lancement de la caméra pour la capture d'une image
@@ -58,11 +62,12 @@ export class AddPizzaPage {
   /**
   * Add a new pizza to APP
   */
-  addPizza(pizza: {name: "", desc: "", picture: "", price: 0, ingredient_ids: Array<Ingredient>})
+  addPizza(pizza: Pizza)
   {
     this.pizza = pizza;
     this.pizza.picture = this.base64Image;
 
+    console.log("MES INGREDS :",this.ingredient_ids);
     //TODO : Add ingredient_ids
 
     //Adding the new pizza to App
@@ -76,4 +81,5 @@ export class AddPizzaPage {
     });
     toast.present();
   }
+
 }

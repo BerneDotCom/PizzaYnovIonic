@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
-import { iPizza } from '../../models/pizza';
-import { iIngredient } from '../../models/ingredient';
+import { Pizza } from '../../models/pizza';
+import { Ingredient } from '../../models/ingredient';
 
 /**
  * Generated class for the ViewPizzaPage page.
@@ -17,8 +17,8 @@ import { iIngredient } from '../../models/ingredient';
 })
 export class ViewPizzaPage {
 
-  pizza: iPizza;
-  ingredients: [iIngredient];
+  pizza: Pizza;
+  ingredients: [Ingredient];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public toastCtrl: ToastController) {
     this.pizza = this.navParams.get('data');
