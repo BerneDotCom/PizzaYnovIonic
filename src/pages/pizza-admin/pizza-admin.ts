@@ -36,4 +36,9 @@ export class PizzaAdminPage {
     //Add the selected pizza to the bucket
     this.navCtrl.push(AddPizzaPage);
   }
+
+  edit(pizza: Pizza){
+    //Add the selected pizza to the bucket
+    this.navCtrl.push(AddPizzaPage);
+  }
 }
